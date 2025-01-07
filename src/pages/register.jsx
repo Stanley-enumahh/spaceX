@@ -24,8 +24,8 @@ export function Register() {
       className="flex flex-col justify-center items-center h-screen w-full bg-[#1a1125]"
     >
       {userLoggedIn && <Navigate to={"/App"} replace={true} />}
-      <form className="flex-col flex text-white text-xs gap-5 justify-between rounded-lg p-7 h-[60%] w-[40%] bg-[#261d32]">
-        <h1 className=" text-2xl font-bold">Login</h1>
+      <form className="flex-col flex text-white text-xs gap-5 justify-start md:justify-between rounded-lg p-7 md:mt-0 mt-5 h-full md:h-[70%] w-full md:w-[40%] bg-[#261d32]">
+        <h1 className=" text-2xl font-bold">Create Account</h1>
         <div className="flex flex-col gap-1">
           <label htmlFor="username">email:</label>{" "}
           <input
@@ -52,18 +52,18 @@ export function Register() {
 
           <input
             type="password"
-            placeholder="password"
+            placeholder="confirm password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             className="bg-transparent border-neutral-600 border outline-none px-3 py-4 text-xs rounded-md"
           />
         </div>
         <button className="bg-[#2d54f4] w-full text-white py-3 rounded duration-150 transition-all shadow-lg">
-          sign in
+          Sign Up
         </button>
         <span className="flex flex-row gap-1 w-full justify-center">
           <p>have an account?</p>
-          <Link to="/">Sign up</Link>
+          <Link to="/Login">Login</Link>
         </span>
       </form>
     </div>
