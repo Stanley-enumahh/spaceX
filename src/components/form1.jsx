@@ -1,43 +1,34 @@
+import { Link } from "react-router-dom";
 import DateComponent from "./Datepicker";
-import "react-datepicker/dist/react-datepicker-cssmodules.css";
 import { TimeComponent } from "./TimePicker";
+import { useFormContext } from "react-hook-form";
 
-export default function Form1({
-  Days,
-  event,
-  setEvent,
-  handleNext,
-  selectedDate,
-  setSelectedDate,
-  selectedTime,
-  setSelectedTime,
-}) {
-  function handleSubmit(e) {
-    e.preventDefault();
-    handleNext();
-  }
+export default function Form1({ Days, event, setEvent, handleNext }) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useFormContext();
 
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit(handleNext)}
       className="w-full h-full relative md:px-4 bg-[#222140]"
     >
       <div className="flex flex-col gap-10 md:gap-4 text-neutral-200">
         <div className="flex flex-col gap-2 text-xs">
           <label htmlFor="topic" className="font-bold">
-            Event topic:
+            Event title:
           </label>
           <input
-            value={event.topic}
-            onChange={(e) => setEvent({ ...event, topic: e.target.value })}
-            type="text"
+            {...register("topic", { required: "topic is required" })}
             className="bg-transparent border-neutral-600 border outline-none px-3 py-4 text-xs rounded-md"
             id="topic"
-            placeholder="Enter event name"
+            placeholder="Enter title"
           />
-          {/* {errors.topic && (
+          {errors.topic && (
             <p className="text-red-500 text-xs">{errors.topic.message}</p>
-          )} */}
+          )}
         </div>
 
         <div className="flex flex-col gap-2 text-xs">
@@ -45,63 +36,59 @@ export default function Form1({
             Add a description:
           </label>
           <input
-            value={event.description}
-            onChange={(e) =>
-              setEvent({ ...event, description: e.target.value })
-            }
+            {...register("description", {
+              required: "description is required",
+            })}
             type="text"
             className="bg-transparent border-neutral-600 border outline-none px-3 py-4 text-xs rounded-md"
             id="host"
-            placeholder="example: Join us this week! as we about health in tech"
+            placeholder="short description of event"
           />
-          {/* {errors.host && (
-            <p className="text-red-500 text-xs">{errors.host.message}</p>
-          )} */}
+          {errors.description && (
+            <p className="text-red-500 text-xs">{errors.description.message}</p>
+          )}
         </div>
 
         <div className="flex flex-col gap-2 text-xs">
           <label htmlFor="topic" className="font-bold">
-            Add event Hashtags (optional):
+            Add event Hashtags:
           </label>
           <input
-            value={event.hashtags}
-            onChange={(e) => setEvent({ ...event, hashtags: e.target.value })}
+            {...register("hashtag", { required: "event hashtag is required" })}
             type="text"
             className="bg-transparent border-neutral-600 border outline-none px-3 py-4 text-xs rounded-md"
-            id="description"
+            id="hashtags"
             placeholder="example: #TechTalks2025"
           />
 
-          {/* {errors.description && (
-            <p className="text-red-500 text-xs">{errors.description.message}</p>
-          )} */}
+          {errors.hashtag && (
+            <p className="text-red-500 text-xs">{errors.hashtag.message}</p>
+          )}
         </div>
 
         <div className="flex flex-col gap-2 w-full">
-          <div className="flex flex-row justify-between w-full">
-            <DateComponent
-              selectedDate={selectedDate}
-              setSelectedDate={setSelectedDate}
-            />
-            <TimeComponent
-              selectedTime={selectedDate}
-              setSelectedDate={setSelectedTime}
-            />
+          <div className="flex flex-row md:justify-start justify-between w-full md:gap-4">
+            <DateComponent event={event} setEvent={setEvent} />
+            <TimeComponent event={event} setEvent={setEvent} />
           </div>
-          <p className="text-xs text-neutral-400">
+          {/* <p className="text-xs text-neutral-400">
             {selectedDate &&
-              `This event will take place on the ${
-                Days[selectedDate.getDay()]
-              }`}
-          </p>
+              `This event will take place on the ${Days[selectedDate]}`}
+          </p> */}
         </div>
 
-        <button
-          type="submit"
-          className="bg-[#2d54f4] w-fit text-white px-6 py-1 rounded hover:scale-95 duration-150 transition-all absolute shadow-lg bottom-6 right-6"
-        >
-          next
-        </button>
+        <div className="absolute right-[7px] bottom-[20px] flex flex-row gap-5">
+          <Link
+            to="/"
+            className="border text-xs border-[#2d54f4] w-fit text-white px-6 py-1 rounded hover:scale-95 duration-150 transition-all shadow-lg"
+          >
+            Cancel
+          </Link>
+
+          <button className="bg-[#2d54f4] text-xs w-fit text-white px-6 py-1 rounded hover:scale-95 duration-150 transition-all shadow-lg">
+            Next
+          </button>
+        </div>
       </div>
     </form>
   );

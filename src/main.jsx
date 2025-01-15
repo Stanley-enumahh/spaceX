@@ -4,34 +4,26 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import FormBox from "./pages/forms";
-import { Register } from "./pages/register";
-import { Login } from "./pages/login";
-import { AuthProvider } from "./context/authContext";
+import MobilePreview from "./pages/Mobilepreview";
 
 const router = createBrowserRouter([
   {
-    path: "/App",
+    path: "/",
     element: <App />,
   },
 
   {
-    path: "/",
-    element: <Register />,
-  },
-  {
-    path: "/Login",
-    element: <Login />,
-  },
-  {
     path: "/Form",
     element: <FormBox />,
+  },
+  {
+    path: "/previewPage",
+    element: <MobilePreview />,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );

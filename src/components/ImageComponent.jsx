@@ -7,7 +7,7 @@ export function ImageComponent({ event, setEvent }) {
         htmlFor="photo"
         className="bg-[#9000b3] cursor-pointer rounded-md text-white shadow-lg py-2 px-4 w-fit"
       >
-        {event.hostImage ? "Change image" : "Add host Image (optional)"}
+        {event.hostImage ? "Change image" : "Add host Image"}
       </label>
       <input
         onChange={({ target: { files } }) => {
