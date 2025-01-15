@@ -5,14 +5,14 @@ import { VscDebugBreakpointLog } from "react-icons/vsc";
 
 export function Hero() {
   return (
-    <div className="w-[90%] md:w-[70%] gap-8 md:gap-5 h-[80%] items-center relative md:justify-center flex flex-col text-black z-10">
+    <div className="w-[90%] md:w-[70%] gap-8 md:gap-4 h-[80%] items-center relative md:justify-center flex flex-col text-black z-10">
       <h1 className="text-xl md:mt-0 mt-[50px] md:text-4xl text-center font-semibold">
         Create your custom X Event Image in Seconds!
       </h1>
       <p className="text-center text-xs">
-        Share your excitement for the upcoming Twitter Space event with a
-        personalized Image just by inputting your details, customize your design
-        and download your unique image to share with your followers!
+        Share your excitement for the upcoming X Space event with a personalized
+        flyer just by inputting your details, customize your design and download
+        your unique image to share with your followers!
       </p>
 
       <ul className="grid grid-cols-2 gap-2 md:gap-4 text-xs">

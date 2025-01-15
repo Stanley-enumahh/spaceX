@@ -15,7 +15,7 @@ export default function DateComponent({ event, setEvent }) {
       <DatePicker
         onChange={onDateChange}
         needConfirm
-        className="bg-transparent hover:bg-transparent text-white border-neutral-600 border outline-none px-3 py-2 text-xs rounded-md"
+        className="bg-transparent hover:bg-transparent text-white border-neutral-600 border outline-none px-2 py-2 text-xs rounded-md"
         id="date"
       />
       {/* {guestError ? (
