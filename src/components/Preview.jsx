@@ -16,9 +16,9 @@ export default function Preview({ event, Days, formData, guestArray, DivRef }) {
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}
-      className="w-[700px] md:w-[1040px] overflow-hidden h-[350px] md:h-[435px] flex-col justify-between text-white relative flex items-center z-50"
+      className="w-full md:w-[1040px] md:mb-0 mb-[200px] overflow-hidden h-[260px] md:h-[435px] flex-col justify-between text-white relative flex items-center z-50"
     >
-      <span className="left-[-100px] bg-opacity-45 z-10 rounded-full top-[-250px] absolute bg-red-500 h-[500px] w-[500px]"></span>
+      <span className="left-[-50px] md:left-[-100px] bg-opacity-45 z-10 rounded-full top-[-100px] md:top-[-250px] absolute bg-red-500 md:h-[500px] w-[200px] h-[200px] md:w-[500px]"></span>
       <span
         className={`${
           event.bgImage ? "hidden" : "flex"
