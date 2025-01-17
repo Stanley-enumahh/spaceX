@@ -9,17 +9,20 @@ import { useRef, useState } from "react";
 import { toPng } from "html-to-image";
 import { colorset } from "../components/colors.jsx";
 import { colorset2 } from "../components/colors.jsx";
+import { useNavigate } from "react-router-dom";
 
 export default function FormBox() {
-  const DivRef = useRef(null);
+  // const DivRef = useRef(null);
+  const formRef = useRef(null);
+  const navigate = useNavigate();
 
   const onDownload = async () => {
-    if (DivRef.current === null) {
+    if (formRef.current === null) {
       return;
     }
 
     try {
-      const dataUrl = await toPng(DivRef.current);
+      const dataUrl = await toPng(formRef.current);
       const link = document.createElement("a");
       link.download = "my X-Space.png";
       link.href = dataUrl;
@@ -29,8 +32,23 @@ export default function FormBox() {
     }
   };
 
+  const handlePreview = async () => {
+    console.log(3000);
+
+    if (formRef.current === null) return;
+
+    try {
+      const imageData = await toPng(formRef.current);
+      console.log(imageData);
+
+      navigate("/preview", { state: { imageData } });
+    } catch (error) {
+      console.error("Error generating image:", error);
+    }
+  };
+
   const methods = useForm();
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(4);
   const [formData, setformData] = useState(null);
   const [guestArray, setGuestArray] = useState([]);
 
@@ -83,17 +101,24 @@ export default function FormBox() {
 
         <div className="w-full h-full gap-7 md:gap-5 bg-[#222140] flex flex-col md:flex-row justify-between relative">
           {step === 5 && (
-            <div className="absolute right-[30px] top-[-47px] flex flex-row gap-5">
+            <div className="absolute right-[30px] bottom-4 md:top-[-47px] flex flex-row gap-5 h-fit">
               <button
                 className="border text-xs border-[#2d54f4] w-fit text-white px-6 py-1 rounded hover:scale-95 duration-150 transition-all shadow-lg"
                 onClick={() => setStep(1)}
               >
-                Edit options
+                Edit Options
               </button>
 
               <button
+                // onClick={onDownload}
+                onClick={handlePreview}
+                className="bg-red-500 md:hidden flex text-xs w-fit text-white px-6 py-1 rounded hover:scale-95 duration-150 transition-all shadow-lg"
+              >
+                View Full Preview
+              </button>
+              <button
                 onClick={onDownload}
-                className="bg-red-500 text-xs w-fit text-white px-6 py-1 rounded hover:scale-95 duration-150 transition-all shadow-lg"
+                className="bg-red-500 md:flex hidden text-xs w-fit text-white px-6 py-1 rounded hover:scale-95 duration-150 transition-all shadow-lg"
               >
                 Download PNG
               </button>
@@ -135,6 +160,8 @@ export default function FormBox() {
                 setEvent={setEvent}
                 handleSelectColor1={handleSelectColor1}
                 handleSelectColor2={handleSelectColor2}
+                // onDownload={onDownload}
+                handlePreview={handlePreview}
               />
             ) : (
               <Preview
@@ -144,7 +171,8 @@ export default function FormBox() {
                 setEvent={setEvent}
                 formData={formData}
                 guestArray={guestArray}
-                DivRef={DivRef}
+                // DivRef={DivRef}
+                DivRef={formRef}
               />
             )}
           </FormProvider>

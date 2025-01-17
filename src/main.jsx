@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import FormBox from "./pages/forms";
-import MobilePreview from "./pages/Mobilepreview";
+import PreviewPage from "./pages/previewPage";
 
 const router = createBrowserRouter([
   {
@@ -17,8 +17,8 @@ const router = createBrowserRouter([
     element: <FormBox />,
   },
   {
-    path: "/previewPage",
-    element: <MobilePreview />,
+    path: "/preview",
+    element: <PreviewPage />,
   },
 ]);
 
