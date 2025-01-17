@@ -17,18 +17,31 @@ export default function FormBox() {
   const navigate = useNavigate();
 
   const onDownload = async () => {
-    if (formRef.current === null) {
-      return;
-    }
+    if (formRef.current) {
+      const width = 800; // Desired width of the exported image
+      const height = 600; // Desired height of the exported image
 
-    try {
-      const dataUrl = await toPng(formRef.current);
-      const link = document.createElement("a");
-      link.download = "my X-Space.png";
-      link.href = dataUrl;
-      link.click();
-    } catch (error) {
-      console.error("Error generating image", error);
+      toPng(formRef.current, {
+        width,
+        height,
+        style: {
+          transform: "scale(1)",
+          transformOrigin: "top left",
+          style: {
+            transform: "scale(1)",
+            transformOrigin: "top left",
+          },
+        },
+      })
+        .then((dataUrl) => {
+          const link = document.createElement("a");
+          link.href = dataUrl;
+          link.download = "my Space X.png";
+          link.click();
+        })
+        .catch((error) => {
+          console.error("Error generating image:", error);
+        });
     }
   };
 
@@ -101,7 +114,7 @@ export default function FormBox() {
 
         <div className="w-full h-full gap-7 md:gap-5 bg-[#222140] flex flex-col md:flex-row justify-between relative">
           {step === 5 && (
-            <div className="absolute right-[30px] md:mr-0 mr-4 bottom-4 md:top-[-47px] flex flex-row gap-5 h-fit">
+            <div className="absolute right-[50px] md:right-[30px] bottom-4 md:top-[-47px] flex flex-row gap-5 h-fit">
               <button
                 className="border text-xs border-[#2d54f4] w-fit text-white px-6 py-1 rounded hover:scale-95 duration-150 transition-all shadow-lg"
                 onClick={() => setStep(1)}
