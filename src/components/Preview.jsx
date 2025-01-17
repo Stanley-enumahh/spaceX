@@ -63,7 +63,7 @@ export default function Preview({ event, Days, formData, guestArray, DivRef }) {
                 <img
                   src={speaker.guestImage ? speaker.guestImage : noProfile}
                   alt={speaker.guestName}
-                  className="w-[40px] md:w-[80px] border-4 border-r-white shadow-lg h-[40px] md:h-[100px] rounded object-cover"
+                  className="w-[40px] md:w-[80px] border-2 md:border-4 border-r-white shadow-lg h-[40px] md:h-[100px] rounded object-cover"
                 />
                 <p className="text-neutral-200 text-xs md:text-sm capitalize">
                   {speaker.guestName}
@@ -102,7 +102,9 @@ export default function Preview({ event, Days, formData, guestArray, DivRef }) {
             />
           </span>
           <span className="flex flex-col leading-4 md:leading-normal justify-center items-center">
-            <p className="capitalize text-xs md:text-sm">{formData.hostName}</p>
+            <p className="capitalize text-xs md:text-sm text-nowrap">
+              {formData.hostName}
+            </p>
             <p className="font-bold text-xs md:text-sm">@{formData.Xhandle}</p>
           </span>
         </div>

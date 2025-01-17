@@ -4,7 +4,7 @@ export default function StepsUI({ step }) {
       <div
         className={` ${
           step === 1
-            ? "bg-gradient-to-r from-[#2d54f4] to-[#132360]"
+            ? "bg-[#2d54f4] md:bg-gradient-to-r from-[#2d54f4] to-[#132360]"
             : "bg-transparent"
         } rounded-sm text-sm shadow-sm w-full flex flex-row md:justify-start justify-center items-center gap-2 py-2 text-neutral-200 px-3`}
       >
@@ -17,7 +17,7 @@ export default function StepsUI({ step }) {
       <div
         className={` ${
           step === 2
-            ? "bg-gradient-to-r from-[#2d54f4] to-[#132360]"
+            ? "bg-[#2d54f4] md:bg-gradient-to-r from-[#2d54f4] to-[#132360]"
             : "bg-transparent"
         } rounded-sm text-sm shadow-sm w-full flex flex-row items-center md:justify-start justify-center gap-2 py-2 text-neutral-200 px-3`}
       >
@@ -30,7 +30,7 @@ export default function StepsUI({ step }) {
       <div
         className={` ${
           step === 3
-            ? "bg-gradient-to-r from-[#2d54f4] to-[#132360]"
+            ? "bg-[#2d54f4] md:bg-gradient-to-r from-[#2d54f4] to-[#132360]"
             : "bg-transparent"
         } rounded-sm text-sm shadow-sm w-full flex flex-row items-center gap-2 py-2 text-neutral-200 md:justify-start justify-center px-3`}
       >
@@ -43,7 +43,7 @@ export default function StepsUI({ step }) {
       <div
         className={` ${
           step === 4
-            ? "bg-gradient-to-r from-[#2d54f4] to-[#132360]"
+            ? "bg-[#2d54f4] md:bg-gradient-to-r from-[#2d54f4] to-[#132360]"
             : "bg-transparent"
         } rounded-sm text-sm shadow-sm w-full flex flex-row items-center gap-2 py-2 text-neutral-200 md:justify-start justify-center px-3`}
       >
@@ -56,7 +56,7 @@ export default function StepsUI({ step }) {
       <div
         className={` ${
           step === 5
-            ? "bg-gradient-to-r from-[#2d54f4] to-[#132360]"
+            ? "bg-[#2d54f4] md:bg-gradient-to-r from-[#2d54f4] to-[#132360]"
             : "bg-transparent"
         } rounded-sm text-sm shadow-sm w-full flex flex-row items-center gap-2 py-2 text-neutral-200 md:justify-start justify-center px-3`}
       >
