@@ -52,9 +52,9 @@ export default function Preview({ event, formData, guestArray, DivRef }) {
 
       <div className="absolute bottom-1 md:bottom-[20px] px-3 md:px-8 h-fit w-full flex flex-row justify-between items-end">
         <div className="h-fit gap-2 md:gap-7 justify-between flex flex-col z-50">
-          {/* <p className="font-semibold text-xs md:hidden flex">
+          <p className="font-semibold text-xs md:hidden flex">
             venue: @{formData.Xhandle} X space
-          </p> */}
+          </p>
           <ul className="flex flex-row w-fit text-white gap-2 md:gap-4 ">
             {guestArray.map((speaker) => (
               <li
@@ -66,9 +66,9 @@ export default function Preview({ event, formData, guestArray, DivRef }) {
                   alt={speaker.guestName}
                   className="w-[35px] md:w-[80px] border-2 md:border-4 border-r-white shadow-lg h-[40px] md:h-[100px] rounded object-cover"
                 />
-                {/* <p className="text-neutral-200 text-xs md:text-sm capitalize">
+                <p className="text-neutral-200 text-xs md:text-sm capitalize">
                   {speaker.guestName}
-                </p> */}
+                </p>
               </li>
             ))}
           </ul>
