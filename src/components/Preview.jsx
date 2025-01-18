@@ -92,7 +92,7 @@ export default function Preview({ event, Days, formData, guestArray, DivRef }) {
             className="flex flex-col items-center justify-center p-2 md:p-3 rounded-full"
           >
             <img
-              src={event.hostImage}
+              src={event.hostImage ? event.hostImage : noProfile}
               alt={formData.hostName}
               className={`rounded-full object-cover ${
                 guestArray.length >= 1

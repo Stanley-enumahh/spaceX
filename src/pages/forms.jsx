@@ -9,52 +9,20 @@ import { useRef, useState } from "react";
 import { toPng } from "html-to-image";
 import { colorset } from "../components/colors.jsx";
 import { colorset2 } from "../components/colors.jsx";
-import { useNavigate } from "react-router-dom";
 
 export default function FormBox() {
   // const DivRef = useRef(null);
   const formRef = useRef(null);
-  const navigate = useNavigate();
 
   const onDownload = async () => {
-    if (formRef.current) {
-      const width = 800; // Desired width of the exported image
-      const height = 600; // Desired height of the exported image
-
-      toPng(formRef.current, {
-        width,
-        height,
-        style: {
-          transform: "scale(1)",
-          transformOrigin: "top left",
-          style: {
-            transform: "scale(1)",
-            transformOrigin: "top left",
-          },
-        },
-      })
-        .then((dataUrl) => {
-          const link = document.createElement("a");
-          link.href = dataUrl;
-          link.download = "my Space X.png";
-          link.click();
-        })
-        .catch((error) => {
-          console.error("Error generating image:", error);
-        });
-    }
-  };
-
-  const handlePreview = async () => {
-    console.log(3000);
-
     if (formRef.current === null) return;
 
     try {
-      const imageData = await toPng(formRef.current);
-      console.log(imageData);
-
-      navigate("/preview", { state: { imageData } });
+      const dataUrl = await toPng(formRef.current);
+      const link = document.createElement("a");
+      link.download = "my-X-space.png";
+      link.href = dataUrl;
+      link.click();
     } catch (error) {
       console.error("Error generating image:", error);
     }
@@ -166,8 +134,6 @@ export default function FormBox() {
                 setEvent={setEvent}
                 handleSelectColor1={handleSelectColor1}
                 handleSelectColor2={handleSelectColor2}
-                // onDownload={onDownload}
-                handlePreview={handlePreview}
               />
             ) : (
               <Preview

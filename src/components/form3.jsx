@@ -63,7 +63,7 @@ function GuestList({
   if (guestArray.length === 0)
     return (
       <div className="w-full flex justify-center text-neutral-200">
-        <p className="text-sm text-neutral-200">You have zero speakers</p>
+        <p className="text-sm text-neutral-200">You have zero guest speakers</p>
       </div>
     );
   if (guestArray.length >= 1)
@@ -93,7 +93,7 @@ function GuestList({
         <p className="text-xs text-neutral-400">
           {" "}
           {speakerCount >= 1
-            ? `you can add up ${speakerCount} speakers`
+            ? `you can add up ${speakerCount} guest speakers`
             : "maximum reached"}
         </p>
       </div>
