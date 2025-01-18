@@ -15,7 +15,7 @@ export default function Form1({ Days, event, setEvent, handleNext }) {
       onSubmit={handleSubmit(handleNext)}
       className="w-full h-full relative md:px-4 bg-[#222140]"
     >
-      <div className="flex flex-col gap-10 md:gap-4 text-neutral-200">
+      <div className="flex flex-col gap-5 md:gap-4 text-neutral-200">
         <div className="flex flex-col gap-2 text-xs">
           <label htmlFor="topic" className="font-bold">
             Event title:
@@ -80,7 +80,7 @@ export default function Form1({ Days, event, setEvent, handleNext }) {
         <div className="absolute right-[7px] bottom-[20px] flex flex-row gap-5">
           <Link
             to="/"
-            className="border text-xs border-[#2d54f4] w-fit text-white px-6 py-1 rounded hover:scale-95 duration-150 transition-all shadow-lg"
+            className="text-xs bg-red-500 w-fit text-white px-6 py-1 rounded hover:scale-95 duration-150 transition-all shadow-lg"
           >
             Cancel
           </Link>

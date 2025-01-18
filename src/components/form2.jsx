@@ -19,7 +19,7 @@ export default function Form2({
   return (
     <form
       onSubmit={handleSubmit(handleNext)}
-      className="w-full h-full relative md:p-4 flex flex-col gap-10 md:gap-4"
+      className="w-full h-full relative md:p-4 flex flex-col gap-6 md:gap-4"
     >
       <div className="flex flex-col gap-2 text-xs">
         <label htmlFor="name" className="font-bold text-neutral-200">

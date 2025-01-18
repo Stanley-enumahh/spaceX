@@ -66,7 +66,6 @@ export default function FormBox() {
   function handleAddGuest(guest) {
     if (guestArray.length >= 3) return;
     setGuestArray((guests) => [...guests, guest]);
-    console.log(guestArray);
   }
 
   return (
@@ -81,7 +80,7 @@ export default function FormBox() {
 
         <div className="w-full h-full gap-7 md:gap-5 bg-[#222140] flex flex-col md:flex-row justify-between relative">
           {step === 5 && (
-            <div className="absolute right-[50px] md:right-[30px] bottom-4 md:top-[-47px] flex flex-row gap-5 h-fit">
+            <div className="absolute md:w-fit w-full justify-center md:justify-start md:right-[30px] bottom-4 md:top-[-47px] flex flex-row gap-5 h-fit">
               <button
                 className="border text-xs border-[#2d54f4] w-fit text-white px-6 py-1 rounded hover:scale-95 duration-150 transition-all shadow-lg"
                 onClick={() => setStep(1)}

@@ -16,7 +16,7 @@ export default function Preview({ event, formData, guestArray, DivRef }) {
       }}
       className="w-full md:w-[1040px] md:mb-0 mb-[300px] overflow-hidden h-[260px] md:h-[435px] flex-col justify-between text-white relative flex items-center z-50"
     >
-      <span className="left-[-50px] md:left-[-100px] bg-opacity-45 z-10 rounded-full top-[-100px] md:top-[-250px] absolute bg-red-500 md:h-[500px] w-[200px] h-[200px] md:w-[500px]"></span>
+      <span className="left-[-50px] md:left-[-100px] bg-opacity-45 z-10 rounded-full top-[-150px] md:top-[-250px] absolute bg-red-500 md:h-[500px] w-[250px] h-[250px] md:w-[500px]"></span>
       <span
         className={`${
           event.bgImage ? "hidden" : "flex"
@@ -52,6 +52,9 @@ export default function Preview({ event, formData, guestArray, DivRef }) {
 
       <div className="absolute bottom-1 md:bottom-[20px] px-3 md:px-8 h-fit w-full flex flex-row justify-between items-end">
         <div className="h-fit gap-2 md:gap-7 justify-between flex flex-col z-50">
+          {/* <p className="font-semibold text-xs md:hidden flex">
+            venue: @{formData.Xhandle} X space
+          </p> */}
           <ul className="flex flex-row w-fit text-white gap-2 md:gap-4 ">
             {guestArray.map((speaker) => (
               <li
@@ -61,21 +64,23 @@ export default function Preview({ event, formData, guestArray, DivRef }) {
                 <img
                   src={speaker.guestImage ? speaker.guestImage : noProfile}
                   alt={speaker.guestName}
-                  className="w-[40px] md:w-[80px] border-2 md:border-4 border-r-white shadow-lg h-[40px] md:h-[100px] rounded object-cover"
+                  className="w-[35px] md:w-[80px] border-2 md:border-4 border-r-white shadow-lg h-[40px] md:h-[100px] rounded object-cover"
                 />
-                <p className="text-neutral-200 text-xs md:text-sm capitalize">
+                {/* <p className="text-neutral-200 text-xs md:text-sm capitalize">
                   {speaker.guestName}
-                </p>
+                </p> */}
               </li>
             ))}
           </ul>
 
           <div className="flex flex-col md:text-sm text-xs leading-4 md:leading-normal bg-red-5 justify-center text-white md:gap-1 bg-opacity-65">
-            <span className="flex flex-row gap-2">
+            <span className="flex flex-row gap-1 md:gap-2">
               <p className="font-semibold">Date: {event.selectedDate},</p>
               <p className="font-semibold">{event.selectedTime}</p>
             </span>
-            <p className="font-semibold">venue: @{formData.Xhandle} X space</p>
+            <p className="font-semibold md:flex hidden text-xs">
+              venue: @{formData.Xhandle} X space
+            </p>
           </div>
         </div>
 
@@ -103,7 +108,6 @@ export default function Preview({ event, formData, guestArray, DivRef }) {
             <p className="capitalize text-xs md:text-sm text-nowrap">
               {formData.hostName}
             </p>
-            <p className="font-bold text-xs md:text-sm">@{formData.Xhandle}</p>
           </span>
         </div>
       </div>
