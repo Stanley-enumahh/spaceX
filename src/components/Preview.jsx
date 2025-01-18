@@ -99,7 +99,7 @@ export default function Preview({ event, formData, guestArray, DivRef }) {
               alt={formData.hostName}
               className={`rounded-full object-cover ${
                 guestArray.length >= 1
-                  ? "w-[80px] md:w-[130px] h-[80px] md:h-[130px]"
+                  ? "w-[70px] md:w-[130px] h-[70px] md:h-[130px]"
                   : "h-[140px] w-[140px]"
               } `}
             />
