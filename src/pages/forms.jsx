@@ -11,7 +11,6 @@ import { colorset } from "../components/colors.jsx";
 import { colorset2 } from "../components/colors.jsx";
 
 export default function FormBox() {
-  // const DivRef = useRef(null);
   const formRef = useRef(null);
 
   const onDownload = async () => {
@@ -73,10 +72,10 @@ export default function FormBox() {
   return (
     <div className="w-full h-screen md:p-4 items-center relative bg-[#dbd4eb] flex justify-center">
       <h1 className="font-bold absolute top-4 left-8 text-lg bg-[#2d54f4] duration-150 transition-all md:flex hidden shadow-md px-4 py-2 rounded-md text-white">
-        Space X
+        X Space
       </h1>
       <div className="w-full md:w-[80%] md:gap-7 h-full md:h-[93%] p-5 rounded-md shadow-xl bg-[#222140] flex flex-col gap-[70px] md:justify-center ">
-        <h1 className="font-bold hidden md:flex text-2xl text-neutral-200">
+        <h1 className="font-bold hidden md:flex text-xl text-neutral-200">
           Create new event
         </h1>
 

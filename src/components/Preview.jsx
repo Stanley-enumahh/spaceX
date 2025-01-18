@@ -6,8 +6,6 @@ export default function Preview({ event, formData, guestArray, DivRef }) {
     border: `solid 4px ${event.color2}`,
   };
 
-  console.log(guestArray.length);
-
   return (
     <div
       ref={DivRef}
