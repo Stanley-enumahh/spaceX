@@ -1,7 +1,7 @@
 import mic from "../assets/ei_1736824815604-removebg-preview.png";
 import noProfile from "../assets/blank-profile-picture-973460_1280.png";
 
-export default function Preview({ event, Days, formData, guestArray, DivRef }) {
+export default function Preview({ event, formData, guestArray, DivRef }) {
   const imageStyle = {
     border: `solid 4px ${event.color2}`,
   };

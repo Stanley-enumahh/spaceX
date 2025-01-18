@@ -11,8 +11,6 @@ export default function Form4({
   colorset2,
   handleSelectColor1,
   handleSelectColor2,
-  onDownload,
-  handlePreview,
 }) {
   const PreviewStyle = {
     background: `url(${event.bgImage})`,
@@ -95,7 +93,6 @@ export default function Form4({
 
         <button
           onClick={handleNext}
-          // onClick={handlePreview}
           className="bg-[#2d54f4] text-xs w-fit text-white px-6 py-1 rounded hover:scale-95 duration-150 transition-all shadow-lg"
         >
           Next
